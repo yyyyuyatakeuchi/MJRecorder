@@ -1,0 +1,9 @@
+<%= form_for(calculation_calculate_path, method: :get) do |f| %>
+  <% @matchs.times do |n| %>
+    <%= f.label("#{n+1}回目") %>
+    <%= f.number_field("number#{n+1}")%>
+    <br>
+  <% end %>
+  <%= f.hidden_field :matchs, :value => @matchs %>
+  <%= f.submit "点数間違いなし" %>
+<% end %>

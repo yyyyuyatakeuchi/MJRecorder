@@ -1,0 +1,26 @@
+<h2>ま〜じゃんぱた〜ん</h2>
+<%= form_tag('/', method: :get) do %>
+  <%= select_tag(:matchs,options_for_select([1,2,3,4,5,6,7,8,9,10])) %>
+  <%= submit_tag "回数OK" %>
+<% end %>
+<br>
+
+<%= form_tag(calculation_calculate_path, method: :get) do %>
+  <% @matchs.times do |n| %>
+    <%= "#{n+1}回目" %>
+    <%= number_field(:number, "#{n+1}", in: -300..1500) %>
+    <br>
+  <% end %>
+  <%= hidden_field_tag :matchs, @matchs %>
+  <%= submit_tag "点数間違いなし" %>
+<% end %>
+
+
+<h3>計算結果</h3>
+<h2><%= @result_total %><br></h2>
+
+<p>計算式</p>
+<%= @cal %>
+<br>
+<%= "= ( #{@score_total} ) - #{250 * @matchs}" if @score_total %>
+

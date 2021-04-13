@@ -1,7 +1,8 @@
 <h2>ま〜じゃんぱた〜ん</h2>
 <%= form_tag('/', method: :get) do %>
-  <%= select_tag(:matchs,options_for_select([1,2,3,4,5,6,7,8,9,10])) %>
-  <%= submit_tag "回数OK" %>
+  <%= select_tag(:matchs,options_for_select([['半荘回数',1],1,2,3,4,5,6,7,8,9,10,11,12], :selected => @matchs)) %>
+  <%= select_tag(:rates,options_for_select([['レート×1',1],2,3,4,5,6,7,8,9,10], :selected => @rates)) %>
+  <%= submit_tag "次へ進む" %>
 <% end %>
 <br>
 
@@ -12,15 +13,34 @@
     <br>
   <% end %>
   <%= hidden_field_tag :matchs, @matchs %>
+  <%= hidden_field_tag :rates, @rates %>
   <%= submit_tag "点数間違いなし" %>
 <% end %>
 
-
 <h3>計算結果</h3>
-<h2><%= @result_total %><br></h2>
+<h2><div id="app">
+ <p>{{message}} <p>
+</div></h2>
 
 <p>計算式</p>
-<%= @cal %>
+<%= @cal_formula %>
 <br>
-<%= "= ( #{@score_total} ) - #{250 * @matchs}" if @score_total %>
+<%= "= ( #{@score_total} ) - #{250 * @matchs}" if @score_total %><br>
+<%= "( #{@result_total} × 10 ) × rating:#{@rates}" if @score_total %>
+<%#= @score_record %>
+
+
+
+
+<script>
+  var app = new Vue({
+    el: "#app",
+      data: {
+        message: "",
+      }
+   })
+app.message = "<%= @result %>";
+</script>
+
+
 

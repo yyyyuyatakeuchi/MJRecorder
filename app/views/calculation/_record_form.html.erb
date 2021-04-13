@@ -1,0 +1,7 @@
+<% if @score_record%>
+  <%= form_for(calculation_calculate_path, method: :get) do |f| %>
+    <%= f.hidden_field :score, :value => @score_record %>
+    <%= f.hidden_field :matchs, :value => @matchs %>
+    <%= f.submit "保存" %>
+  <% end %>
+<% end %>

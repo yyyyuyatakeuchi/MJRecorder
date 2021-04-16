@@ -27,7 +27,7 @@
       <% @matchs.times do |n| %>
         <div class="number_field">
           <%= number_field(:number, "#{n+1}", in: -300..1500) %>
-          <small><%= @score_record[n] %></small>
+          <small><%= @score_record[n] if @score_record%></small>
         </div>
       <% end %>
     </div>

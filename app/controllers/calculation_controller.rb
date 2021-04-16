@@ -1,8 +1,12 @@
 class CalculationController < ApplicationController
   def top
     @rates = params[:rates].to_i
-    @matchs = params[:id].to_i if params[:matchs].nil?
-    @matchs = params[:matchs].to_i if params[:id] == "calculate"
+    @matchs = params[:matchs].to_i
+  end
+
+  def matchCount
+    @matchs = params[:id].to_i
+    render :top
   end
 
   def calculate

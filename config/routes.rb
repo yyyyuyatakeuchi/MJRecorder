@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get 'calculation/top'
   get 'calculation/calculate'
   post 'calculation/calculate'
-  get 'calculation/:id' => 'calculation#top'
+  get 'calculation/:id' => 'calculation#matchCount'
 end

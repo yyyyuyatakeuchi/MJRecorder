@@ -1,0 +1,57 @@
+html * {
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
+}
+
+body {
+  font-family: ヒラギノ角ゴ Pro W3,Hiragino Kaku Gothic Pro,メイリオ,Meiryo,verdana,Osaka,ＭＳ\ Ｐゴシック,MS PGothic,Sans-Serif;
+  background-color: rgb(72, 192, 102);
+}
+
+/* header */
+
+header {
+  display: inline-block;
+  width: 100%;
+  background-color: rgb(236, 245, 240);
+}
+
+header ul {
+  float:right;
+  list-style: none;
+  margin-right: 7px;
+}
+
+header a {
+  color: rgb(2, 7, 3);
+}
+
+header a:hover{
+  color:rgb(196, 176, 176);
+}
+
+header li{
+  margin-left: 10px;
+  float:left;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo {
+  float: left;
+  margin: 6px;
+  font-size: 1.7em;
+  color: rgb(6, 49, 20);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color:rgb(196, 176, 176);
+  text-decoration: none;
+}
+

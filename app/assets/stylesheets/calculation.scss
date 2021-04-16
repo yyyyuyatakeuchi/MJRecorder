@@ -1,14 +1,11 @@
 // Place all the styles related to the calculation controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-#target{
-  font-size: 30px;
-}
-
 .gameCount{
+  margin-top: 5px;
   margin-bottom: 0;
   padding:5px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .mark ul{ 
@@ -27,13 +24,17 @@
 
 .rate {
   float:right;
-  margin-right: 15px;
+  margin-right: 10px;
   font-size: 18px;
 }
 
-.number_field{
+.form_scores{
   margin-left: 5px;
-  font-size: 22px;
+  font-size: 20px;
+}
+
+#number_1,#number_2,#number_3,#number_4,#number_5,#number_6,#number_7,#number_8,#number_9,#number_10,#number_11,#number_12{
+  width:100px;
 }
 
 .result_btn{
@@ -48,10 +49,21 @@
 
 .result{
   text-align: center;
-  border: 2px solid #eaeaea;
+  border: 5px solid #132413;
+  background-color: rgb(32, 66, 43);
 }
 
-#app{
+.result h3{
+  color:snow;
+}
+
+.result p{
+  color:rgb(252, 251, 250);
   margin-top:0;
   font-size: 30px;
+}
+
+.cal_formula h4{
+  margin-bottom: 3px;
+  border-bottom: 1px solid #132413;
 }

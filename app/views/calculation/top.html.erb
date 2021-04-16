@@ -22,12 +22,14 @@
       <small>Ratings:</small>
       <%= select_tag(:rates,options_for_select([['レート×1',1],2,3,4,5,6,7,8,9,10], :selected => @rates)) %>
     </div>
-    <% @matchs.times do |n| %>
-      <div class="number_field">
-        <small><%= "#{n+1}回目" %></small>
-        <%= number_field(:number, "#{n+1}", in: -300..1500) %>
-      </div>
-    <% end %>
+    <div class="form_scores">
+      <small><%= "#{@matchs}半荘" %></small>
+      <% @matchs.times do |n| %>
+        <div class="number_field">
+          <%= number_field(:number, "#{n+1}", in: -300..1500) %>
+        </div>
+      <% end %>
+    </div>
     <%= hidden_field_tag :matchs, @matchs %>
     <div class="result_button">
       <%= submit_tag "点数間違いなし" ,class:"result_btn" %>
@@ -40,11 +42,13 @@
   <p id="app">{{message}}</p>
 </div>
 
-<p>計算式</p>
-<%= @cal_formula %>
-<br>
-<%= "= ( #{@score_total} ) - #{250 * @matchs}" if @score_total %><br>
-<%= "( #{@result_total} × 10 ) × rating:#{@rates}" if @score_total %>
+<div class="cal_formula">
+  <h4>計算式</h4>
+  <%= @cal_formula %>
+  <br>
+  <%= "= ( #{@score_total} ) - #{250 * @matchs}" if @score_total %><br>
+  <%= "( #{@result_total} × 10 ) × rating:#{@rates}" if @score_total %>
+</div>
 <%#= @score_record %>
 
 

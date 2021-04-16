@@ -23,16 +23,17 @@
       <%= select_tag(:rates,options_for_select([['レート×1',1],2,3,4,5,6,7,8,9,10], :selected => @rates)) %>
     </div>
     <div class="form_scores">
-      <small><%= "#{@matchs}半荘" %></small>
+      <small><%= "半荘回数: #{@matchs}" %></small>
       <% @matchs.times do |n| %>
         <div class="number_field">
           <%= number_field(:number, "#{n+1}", in: -300..1500) %>
+          <small><%= @score_record[n] %></small>
         </div>
       <% end %>
     </div>
     <%= hidden_field_tag :matchs, @matchs %>
     <div class="result_button">
-      <%= submit_tag "点数間違いなし" ,class:"result_btn" %>
+      <%= submit_tag "入力完了 計算結果を表示" ,class:"result_btn" %>
     </div>
   <% end %>
 </div>

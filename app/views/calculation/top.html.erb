@@ -19,14 +19,21 @@
 <div class="form_content">
   <%= form_tag(calculation_calculate_path, method: :get) do %>
     <div class="rate">
+      <small>ーSettingsー</small><br>
       <small>Ratings:</small>
-      <%= select_tag(:rates,options_for_select([['レート×1',1],2,3,4,5,6,7,8,9,10], :selected => @rates)) %>
+      <%= select_tag(:rates,options_for_select([['レート×0.2',0.2],0.1,0.2,0.3,0.4,0.5,1,2,3,4,5,10,11,12,13,14,15,20], :selected => @rates)) %><br>
+      <small>基準点:</small>
+      <%= select_tag(:basePoints,options_for_select([['250点',250],25,250,2500,25000], :selected => @basePoints)) %><br>
+      <small>ウマ:</small>
+      <%= select_tag(:uma,options_for_select([['ComingSoon',0],], :selected => @uma)) %><br>
+      <small>オカ:</small>
+      <%= select_tag(:oka,options_for_select([['ComingSoon',0],], :selected => @oka)) %><br>
     </div>
     <div class="form_scores">
       <small><%= "半荘回数: #{@matchs}" %></small>
       <% @matchs.times do |n| %>
         <div class="number_field">
-          <%= number_field(:number, "#{n+1}", in: -300..1500) %>
+          <%= number_field(:number, "#{n+1}", in: -30000..150000) %>
           <small><%= @score_record[n] if @score_record%></small>
         </div>
       <% end %>
@@ -45,10 +52,11 @@
 
 <div class="cal_formula">
   <h4>計算式</h4>
+  <%= "(合計得点 - (基準点 × 半荘回数)) × 基準差分 × Ratings" unless @cal_formula %>
   <%= @cal_formula %>
   <br>
-  <%= "= ( #{@score_total} ) - #{250 * @matchs}" if @score_total %><br>
-  <%= "( #{@result_total} × 10 ) × rating:#{@rates}" if @score_total %>
+  <%= "= ( #{@score_total} ) - #{@basePoints * @matchs}" if @score_total %><br>
+  <%= "( #{@result_total} × #{@difference} ) × rating:#{@rates}" if @score_total %>
 </div>
 <%#= @score_record %>
 

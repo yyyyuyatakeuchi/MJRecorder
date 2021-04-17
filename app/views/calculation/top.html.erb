@@ -17,7 +17,7 @@
 </div>
 
 <div class="form_content">
-  <%= form_tag(calculation_calculate_path, method: :get) do %>
+  <%= form_tag calculation_calculate_path ,method: :get do %>
     <% if @matchs > 0%>
       <div class="rate">
         <small>ーSettingsー</small><br>
@@ -72,7 +72,7 @@
         message: "",
       }
    })
-app.message = "<%= @result %>";
+app.message = "<%= @result.to_i %>";
 </script>
 
 

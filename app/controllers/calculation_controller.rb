@@ -16,7 +16,7 @@ class CalculationController < ApplicationController
     @cal_formula = "( "
     @matchs = params[:matchs].to_i
     @rates = params[:rates].to_f
-    @basePoints = params[:basePoints].to_i
+    @basePoints = params[:basePoints] ? params[:basePoints].to_i : 250
     @matchs.times do |n|
       score = params[:number]["#{n+1}"].to_i
       @score_total += score

@@ -24,7 +24,7 @@
         <small>Ratings:</small>
         <%= select_tag(:rates,options_for_select([['レート×0.2',0.2],0.1,0.2,0.3,0.4,0.5,1,2,3,4,5,10,11,12,13,14,15,20], :selected => @rates)) %><br>
         <small>基準点:</small>
-        <%= select_tag(:basePoints,options_for_select([['250点',250],25,250,2500,25000], :selected => @basePoints)) %><br>
+        <%= select_tag(:basePoints,options_for_select([['default:250点',250],25,250,2500,25000], :selected => @basePoints)) %><br>
         <small>ウマ:</small>
         <%= select_tag(:uma,options_for_select([['ComingSoon',0],], :selected => @uma)) %><br>
         <small>オカ:</small>

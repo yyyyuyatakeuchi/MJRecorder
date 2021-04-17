@@ -7,20 +7,24 @@ class CalculationController < ApplicationController
 
   def matchCount
     @matchs = params[:id].to_i
+    @rank = []
     render :top
   end
 
   def calculate
     @score_total = 0
     @score_record = []
+    @rank = []
     @cal_formula = "( "
     @matchs = params[:matchs].to_i
     @rates = params[:rates].to_f
     @basePoints = params[:basePoints] ? params[:basePoints].to_i : 250
     @matchs.times do |n|
       score = params[:number]["#{n+1}"].to_i
+      rank = params["rank_#{n+1}"].to_i
       @score_total += score
       @score_record << score
+      @rank << rank
       score = "(#{score})" if score < 0
       @cal_formula += (score.to_s + "+" )
     end

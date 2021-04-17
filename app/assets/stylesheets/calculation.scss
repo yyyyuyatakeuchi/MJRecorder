@@ -24,8 +24,15 @@
 
 .rate {
   float:right;
-  margin-right: 10px;
-  font-size: 18px;
+  margin-top: 5px;
+  margin-right: 3px;
+  font-size: 16px;
+  line-height: 1.8em;
+}
+
+.settingTitle{
+  margin-left: 7px;
+  font-size: 17px;
 }
 
 .form_scores{
@@ -34,7 +41,7 @@
 }
 
 #number_1,#number_2,#number_3,#number_4,#number_5,#number_6,#number_7,#number_8,#number_9,#number_10,#number_11,#number_12{
-  width:100px;
+  width:85px;
 }
 
 .number_field small{

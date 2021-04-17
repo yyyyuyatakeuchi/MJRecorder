@@ -31,6 +31,7 @@ class CalculationController < ApplicationController
     @difference = 25000 / @basePoints
     @result_total = @score_total - @basePoints * @matchs
     @result = @result_total * @difference * @rates
+    @result = @result.to_i
     @cal_formula.chop!
     @cal_formula += " ) ー ( #{@basePoints}×#{@matchs} )"
     #@cal += " = ( #{@score_total} ) - #{250 * @matchs}"

@@ -16,8 +16,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <%= render 'layouts/header' %>
+    <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
     <%= yield %>
   </body>
 </html>

@@ -57,15 +57,19 @@ header li{
   text-decoration: none;
 }
 
-.mypageLink{
-  float:right;
+.linkTo{
   margin: 10px;
 }
-.mypageLink a{
+
+.mypage{
+  float:right;
+}
+
+.linkTo a{
   color:seashell
 }
 
-.mypageLink a:hover{
+.linkTo a:hover{
   color:rgb(56, 41, 30)
 }
 

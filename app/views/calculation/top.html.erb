@@ -1,5 +1,5 @@
-<div class="mypageLink">
-  <%= link_to "マイページ>>", '#' %>
+<div class="linkTo mypage">
+  <%= link_to "マイページ>>", mypage_path(current_user) if current_user %>
 </div>
 
 <div id="target">
@@ -18,13 +18,13 @@
 
 <div class="form_content">
   <%= form_tag calculation_calculate_path ,method: :get do %>
-    <% if @matchs > 0%>
+    <% if @match_count > 0%>
       <div class="rate">
         <small class="settingTitle">ーSettingsー</small><br>
-        <small>Ratings:</small>
-        <%= select_tag(:rates,options_for_select([['ﾚｰﾄ×0.2',0.2],0.1,0.2,0.3,0.4,0.5,1,2,3,4,5,10,11,12,13,14,15,20], :selected => @rates)) %><br>
+        <small>Rating:</small>
+        <%= select_tag(:rate,options_for_select([['ﾚｰﾄ×0.2',0.2],0.1,0.2,0.3,0.4,0.5,1,2,3,4,5,10,11,12,13,14,15,20], :selected => @rate)) %><br>
         <small>基準点:</small>
-        <%= select_tag(:basePoints,options_for_select([['dflt:250点',250],25,250,2500,25000], :selected => @basePoints)) %><br>
+        <%= select_tag(:basePoint,options_for_select([['dflt:250点',250],25,250,2500,25000], :selected => @basePoint)) %><br>
         <small>ウマ:</small>
         <%= select_tag(:uma,options_for_select([['ComingSoon',0],], :selected => @uma)) %><br>
         <small>オカ:</small>
@@ -32,8 +32,8 @@
       </div>
     <% end %>
     <div class="form_scores">
-      <small><%= "半荘回数: #{@matchs}" %></small>
-      <% @matchs.times do |n| %>
+      <small><%= "半荘回数: #{@match_count}" %></small>
+      <% @match_count.times do |n| %>
         <div class="number_field">
           <%= number_field(:number, "#{n+1}", in: -30000..150000) %>
           <%= select_tag("rank_#{n+1}", options_for_select([['順位',0],['1位',1],['2位',2],['3位',3],['4位',4]], :selected => @rank[n])) %>
@@ -41,7 +41,7 @@
         </div>
       <% end %>
     </div>
-    <%= hidden_field_tag :matchs, @matchs %>
+    <%= hidden_field_tag :match_count, @match_count %>
     <div class="result_button">
       <%= submit_tag "入力完了 計算結果を表示" ,class:"result_btn" %>
     </div>
@@ -51,6 +51,7 @@
 <div class="result">
   <h3>計算結果</h3>
   <p id="app">{{message}}</p>
+  <%#= render 'record_form' %>
 </div>
 
 <div class="cal_formula">
@@ -58,8 +59,8 @@
   <%= "(合計得点 - (基準点 × 半荘回数)) × 基準差分 × Ratings" unless @cal_formula %>
   <%= @cal_formula %>
   <br>
-  <%= "= ( #{@score_total} ) - #{@basePoints * @matchs}" if @score_total %><br>
-  <%= "( #{@result_total} × #{@difference} ) × rating:#{@rates}" if @score_total %>
+  <%= "= ( #{@score_total} ) - #{@basePoint * @match_count}" if @score_total %><br>
+  <%= "( #{@result_total} × #{@difference} ) × rating:#{@rate}" if @score_total %>
 </div>
 <%#= @score_record %>
 
@@ -73,7 +74,7 @@
         message: "",
       }
    })
-app.message = "<%= @result %>";
+app.message = "<%= @result_point %>";
 </script>
 
 

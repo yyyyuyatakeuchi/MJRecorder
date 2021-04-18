@@ -1,8 +1,12 @@
 <% if @score_record%>
-  <%= form_for(calculation_calculate_create_path, method: :post) do |f| %>
+  <%= form_for(mypage_path(current_user), local: true) do |f| %>
+    <%= f.hidden_field :result_score, :value => @result_point %>
     <%= f.hidden_field :score, :value => @score_record %>
-    <%= f.hidden_field :matchs, :value => @matchs %>
-    <%= f.hidden_field :rates, :value => @rates %>
+    <%= f.hidden_field :match_count, :value => @match_count %>
+    <%= f.hidden_field :rate, :value => @rate %>
+    <%= f.hidden_field :rank, :value => @rank %>
+    <%= f.hidden_field :basePoint, :value => @basePoint %>
     <%= f.submit "保存" %>
   <% end %>
+  <%= link_to "OK", 'score_record/create'  %>
 <% end %>

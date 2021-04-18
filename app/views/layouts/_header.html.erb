@@ -1,7 +1,11 @@
 <header > 
   <%= link_to "MJRecorder", root_path, id: "logo" %>  
   <ul> 
-    <li><%= link_to "ログイン", '#' %></li>
-    <li><%= link_to "新規登録", '#' %></li>
+    <% if current_user %>
+      <li><%= link_to "ログアウト", "#" %></li>
+    <% else %>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+    <% end %>
   </ul>
 </header>

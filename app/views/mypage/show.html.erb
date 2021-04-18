@@ -6,7 +6,7 @@
   <% @records.each do |record| %>
     <%= record.created_at.strftime('%Y/%m/%d') %><br>
     <small>settings-> 半荘回数:<%= record.match_count.to_i %>,</small>
-    <small>×<%= record.rate %>,</small>
+    <small>ﾚｰﾄ×<%= record.rate %>,</small>
     <small>基準点:<%= record.base_point.to_i %></small>
     <br>
     <small>total-> </small><%= record.result_point.to_i %><br>

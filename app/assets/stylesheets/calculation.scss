@@ -61,6 +61,8 @@
 }
 
 .result{
+  display: inline-block;
+  width: 100%;
   text-align: center;
   border: 5px solid #132413;
   background-color: rgb(32, 66, 43);
@@ -72,8 +74,22 @@
 
 .result p{
   color:rgb(252, 251, 250);
-  margin-top:0;
+  margin:0;
   font-size: 30px;
+}
+
+.record_form{
+  float:right;
+  margin:5px;
+}
+
+.record_form small{
+  color: #b4ccb4;
+}
+
+.record_btn{
+  font-size: 15px;
+  border-radius: 7%;
 }
 
 .cal_formula h4{

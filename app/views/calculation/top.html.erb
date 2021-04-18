@@ -51,7 +51,15 @@
 <div class="result">
   <h3>計算結果</h3>
   <p id="app">{{message}}</p>
-  <%= render 'record_form' %>
+  <div class="record_form">
+    <% if @result_point %>
+      <% if current_user %>
+        <%= render 'record_form' %>
+      <% else %>
+        <small>ログイン後に保存可能</small>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="cal_formula">

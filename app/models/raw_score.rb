@@ -1,3 +1,3 @@
 class RawScore < ApplicationRecord
-  belongs_to :scoreSetting
+  belongs_to :score_setting
 end

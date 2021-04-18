@@ -2,7 +2,7 @@ class CalculationController < ApplicationController
   def top
     @rate = params[:rate].to_f
     @match_count = params[:match_count].to_i
-    @basePoint = params[:basePoint].to_i
+    @base_point = params[:base_point].to_i
   end
 
   def matchCount
@@ -18,7 +18,7 @@ class CalculationController < ApplicationController
     @cal_formula = "( "
     @match_count = params[:match_count].to_i
     @rate = params[:rate].to_f
-    @basePoint = params[:basePoint] ? params[:basePoint].to_i : 250
+    @base_point = params[:base_point] ? params[:base_point].to_i : 250
     @match_count.times do |n|
       score = params[:number]["#{n+1}"].to_i
       rank = params["rank_#{n+1}"].to_i
@@ -28,12 +28,12 @@ class CalculationController < ApplicationController
       score = "(#{score})" if score < 0
       @cal_formula += (score.to_s + "+" )
     end
-    @difference = 25000 / @basePoint
-    @result_total = @score_total - @basePoint * @match_count
+    @difference = 25000 / @base_point
+    @result_total = @score_total - @base_point * @match_count
     @result_point = @result_total * @difference * @rate
     @result_point = @result_point.to_i
     @cal_formula.chop!
-    @cal_formula += " ) ー ( #{@basePoint}×#{@match_count} )"
+    @cal_formula += " ) ー ( #{@base_point}×#{@match_count} )"
     #@cal += " = ( #{@score_total} ) - #{250 * @match_count}"
     render :top
   end

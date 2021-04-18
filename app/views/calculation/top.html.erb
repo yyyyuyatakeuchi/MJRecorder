@@ -24,7 +24,7 @@
         <small>Rating:</small>
         <%= select_tag(:rate,options_for_select([['ﾚｰﾄ×0.2',0.2],0.1,0.2,0.3,0.4,0.5,1,2,3,4,5,10,11,12,13,14,15,20], :selected => @rate)) %><br>
         <small>基準点:</small>
-        <%= select_tag(:basePoint,options_for_select([['dflt:250点',250],25,250,2500,25000], :selected => @basePoint)) %><br>
+        <%= select_tag(:base_point,options_for_select([['dflt:250点',250],25,250,2500,25000], :selected => @base_point)) %><br>
         <small>ウマ:</small>
         <%= select_tag(:uma,options_for_select([['ComingSoon',0],], :selected => @uma)) %><br>
         <small>オカ:</small>
@@ -51,7 +51,7 @@
 <div class="result">
   <h3>計算結果</h3>
   <p id="app">{{message}}</p>
-  <%#= render 'record_form' %>
+  <%= render 'record_form' %>
 </div>
 
 <div class="cal_formula">
@@ -59,7 +59,7 @@
   <%= "(合計得点 - (基準点 × 半荘回数)) × 基準差分 × Ratings" unless @cal_formula %>
   <%= @cal_formula %>
   <br>
-  <%= "= ( #{@score_total} ) - #{@basePoint * @match_count}" if @score_total %><br>
+  <%= "= ( #{@score_total} ) - #{@base_point * @match_count}" if @score_total %><br>
   <%= "( #{@result_total} × #{@difference} ) × rating:#{@rate}" if @score_total %>
 </div>
 <%#= @score_record %>

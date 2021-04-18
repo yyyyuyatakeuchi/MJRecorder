@@ -9,8 +9,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
     #omniauth_callbacks: "users/omniauth_callbacks"
   }
-  post 'score_record/create' => 'score_record#create'
   resources :calculation, only: [:create]
   resources :mypage, only: [:show]
-  resources :score_record, only: [:create ,:destroy]
+  resources :records, only: [:create, :destroy]
 end

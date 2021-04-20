@@ -16,13 +16,13 @@
 
 .head-name {
   color: #646464;
-  font-weight: bold;
   display: block;
   float: right;
 }
 
 .head-name a{
   color: #646464;
+  font-weight: bold;
 }
 
 .line{
@@ -37,7 +37,6 @@
 
 .date{
   font-size: 17px;
-  font-weight: bold;
   color: black;
 }
 
@@ -53,4 +52,22 @@
   display: inline-block;
   color: black;
   font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+}
+
+
+li::before{
+  position: relative;
+  margin-right: 8px;
+  top: -3px;
+  left: 5px;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  content: '';
+  border-radius: 100%;
+  background: #1a1919;
 }

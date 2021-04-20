@@ -16,14 +16,15 @@
           ﾚｰﾄ×<%= record.rate %>,
           基準点:<%= record.base_point.to_i %>
         </div>
-        total-> <%= record.result_point.to_i %><br>
+        <div class="total">
+          最終結果-> <%= record.result_point.to_i %><br>
+        </div>
         <% record.raw_scores.each do |raw_score| %>
           <li>
             <%= raw_score.score.to_i %>
             [<%= raw_score.rank.to_i %>位]
           </li>
         <% end %>
-        <br>
       <% end %>
     <% end %>
   </div>

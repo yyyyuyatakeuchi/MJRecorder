@@ -9,7 +9,6 @@
   color: #504d4d;
   margin: 2em 0;
   margin-top: 0;
-  font-weight: bold;
   border: solid 1px #e6e6e6;
   padding: 0.3em 1em 2em 1em;
   box-shadow:2px 2px 0 rgba(0,0,0,.1);
@@ -17,6 +16,7 @@
 
 .head-name {
   color: #646464;
+  font-weight: bold;
   display: block;
   float: right;
 }
@@ -33,14 +33,18 @@
   background-size: 8px 100%,100% 1.8em;
   line-height: 1.8em;
   padding: 1.8em 1em 0.2em 1em;
-  letter-spacing: -0.5px;
 }
 
 .date{
-  font-size: 16px;
+  font-size: 17px;
+  font-weight: bold;
   color: black;
 }
 
 .settings{
   font-size: 14px;
+}
+
+.total{
+  font-size: 17px;
 }

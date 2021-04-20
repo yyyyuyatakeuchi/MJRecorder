@@ -6,7 +6,7 @@
 
 .note{
   background-color: white;
-  color: #504d4d;
+  color: #413e3e;
   margin: 2em 0;
   margin-top: 0;
   border: solid 1px #e6e6e6;
@@ -47,4 +47,10 @@
 
 .total{
   font-size: 17px;
+}
+
+.total-point{
+  display: inline-block;
+  color: black;
+  font-weight: bold;
 }

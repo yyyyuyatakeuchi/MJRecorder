@@ -17,7 +17,7 @@
           基準点:<%= record.base_point.to_i %>
         </div>
         <div class="total">
-          最終結果-> <%= record.result_point.to_i %><br>
+          最終結果-> <div class="total-point"><%= record.result_point.to_i %></div>
         </div>
         <% record.raw_scores.each do |raw_score| %>
           <li>

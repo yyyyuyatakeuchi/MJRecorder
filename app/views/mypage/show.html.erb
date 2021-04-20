@@ -1,21 +1,30 @@
 <div class="linkTo top">
   <%= link_to "<<計算画面", root_path %>
 </div>
-<h2><%= current_user.name %></h2>
-<% if @records %>
-  <% @records.each do |record| %>
-    <%= record.created_at.strftime('%Y/%m/%d') %><br>
-    <small>settings-> 半荘回数:<%= record.match_count.to_i %>,</small>
-    <small>ﾚｰﾄ×<%= record.rate %>,</small>
-    <small>基準点:<%= record.base_point.to_i %></small>
-    <br>
-    <small>total-> </small><%= record.result_point.to_i %><br>
-    <% record.raw_scores.each do |raw_score| %>
-      <small><li>
-        <%= raw_score.score.to_i %>
-        [<%= raw_score.rank.to_i %>位]
-      </li></small>
+<div class="note-top"></div>
+<div class="note">
+  <div class="head-name">name: <%= link_to current_user.name, edit_user_registration_path %></div>
+  <div class="line">
+    <% if @records %>
+      <% @records.each do |record| %>
+        <br>
+        <div class="date">
+          <%= record.created_at.strftime('%Y/%m/%d') %><br>
+        </div>
+        <div class="settings">
+          set-> 半荘回数:<%= record.match_count.to_i %>,
+          ﾚｰﾄ×<%= record.rate %>,
+          基準点:<%= record.base_point.to_i %>
+        </div>
+        total-> <%= record.result_point.to_i %><br>
+        <% record.raw_scores.each do |raw_score| %>
+          <li>
+            <%= raw_score.score.to_i %>
+            [<%= raw_score.rank.to_i %>位]
+          </li>
+        <% end %>
+        <br>
+      <% end %>
     <% end %>
-    <br>
-  <% end %>
-<% end %>
+  </div>
+</div>

@@ -38,6 +38,7 @@
 .date{
   font-size: 17px;
   color: black;
+  font-weight: 550;
 }
 
 .settings{
@@ -54,12 +55,11 @@
   font-weight: bold;
 }
 
-li {
+.line li {
   list-style-type: none;
 }
 
-
-li::before{
+.line li::before{
   position: relative;
   margin-right: 8px;
   top: -3px;
